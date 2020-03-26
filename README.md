@@ -17,10 +17,10 @@ $ git init
 Una vez creado el repositorio, los archivos de su entorno de desarrollo local tendrán dos posibles estados:  "Tracked" o "Untracked". GIT se encarga de monitorear cambios a solo los archivos que poseen el estado "Tracked". Si un archivo está "Tracked" y el mismo fue modificado, GIT le indicará cuando es necesario incluirlo nuevamente a tu área de ensayo (staging), antes de publicar dicho cambio al repositorio local. 
 
 ### Agregado cambios a su repositorio local 
-Durante el desarrollo de un codigo, es normal hacer cambios a los archivos del directorio de trabajo, o crear archivos temporales. Para agregar o "registrar" los cambios al repositorio local, debe primero incluir los archivos en el Área de ensayo (staging), permitiendo a GIT verificar automaticamente sus cambios. Utilice el siguiente comando para incluir cambios a la base de datos de cambios históricos:
+Durante el desarrollo de un codigo, es normal hacer cambios a los archivos del directorio de trabajo, o crear archivos temporales. Para agregar o "registrar" los cambios al repositorio local, debe primero incluir los archivos en el área de ensayo (staging), permitiendo a GIT verificar automaticamente sus cambios. Utilice el siguiente comando para incluir cambios a la base de datos de cambios históricos del repositorio:
 
 ```bash
-$ git add .
+$ git add <parametro>
 ```
 
 <img src="images/pic3.png" width=400>
@@ -29,6 +29,7 @@ $ git add .
 Si utiliza el parametro ".", se agregá todos los archivos de su directorio de trabajo con estado "Untracked" a tu área de ensayo (staging). Tambien puedes indicar el nombre individual de un archivo específico, de acuerdo al siguiente ejemplo:
 
 ```bash
+$ git add .
 $ git add <nombre_de_archivo>
 ```
 
@@ -46,18 +47,21 @@ $ git diff
 
 <img src="images/pic5.png" width=400>
 
-
-Para desacer el paso anterior, es decir sacar un archivo del áre de trabajo (cambiar el estado "Tracked" a "Untracked"), utilize:
+### Eliminar archivos del repositorio local
+Para eliminar un archivo del repositorio local, utilize:
 
 ```bash
 $ git rm
 ```
+Advertencia: Recuerde que el archivo se eliminará del repositorio local y del directorio de trabajo. 
 
-Del paso anterior, si el archivo está en el caché, para remover los cambios agregados de tu área de trabajo (staging), necesitará agregar la badera --cached y el nombre del archivo:
+### Eliminar archivos que ingresaron al área de ensayo
+Si recientemente se incluyó un archivo al área de ensayo, puede revertir ese paso con el siguiente comando:
 
 ```bash
 $ git rm --cached <archivo>
 ```
+Recuerde que no se eliminará del directorio de trabajo.
 
 ## 3. Crear una instantanea del área de trabajo en la base de datos del repositorio.
 Para registrar una instantánea permanente de tu área de trabajo (staging) en la base de datos del repositorio. El nombre por defecto del repositorio es "master". Si se omite la bandera -m, Git llamará un editor de texto para completar el comentario, por defecto se usa VIM, pero puede usted programar otros como Visual Studio Code. Todo "commit" con mensajes vacíos, será abortado.

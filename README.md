@@ -14,7 +14,25 @@ $ git init
 Área de ensayo es un área de preparación donde se envía los archivos antes de enviarlos a la base de datos de cambios históricos de su código o proyecto, conocido tambien como "Repositorio Local".
 
 ## 2. Agregar o eliminar cambios a su repositorio local.
-Una vez creado el repositorio, los archivos de su entorno de desarrollo local tendrán dos posibles estados:  "Tracked" o "Untracked". GIT se encarga de monitorear cambios a solo los archivos que poseen el estado "Tracked". Si un archivo está "Tracked" y el mismo fue modificado, GIT le indicará cuando es necesario incluirlo nuevamente a tu área de ensayo (staging), antes de publicar dicho cambio al repositorio local. Para mostrar los diferentes estados de los archivos en su entorno de desarrollo local, utilice este comando: 
+Una vez creado el repositorio, los archivos de su entorno de desarrollo local tendrán dos posibles estados:  "Tracked" o "Untracked". GIT se encarga de monitorear cambios a solo los archivos que poseen el estado "Tracked". Si un archivo está "Tracked" y el mismo fue modificado, GIT le indicará cuando es necesario incluirlo nuevamente a tu área de ensayo (staging), antes de publicar dicho cambio al repositorio local. 
+
+### Agregado cambios a su repositorio local 
+Durante el desarrollo de un codigo, es normal hacer cambios a los archivos del directorio de trabajo, o crear archivos temporales. Para agregar o "registrar" los cambios al repositorio local, debe primero incluir los archivos en el Área de ensayo (staging), permitiendo a GIT verificar automaticamente sus cambios. Utilice el siguiente comando para incluir cambios a la base de datos de cambios históricos:
+
+```bash
+$ git add .
+```
+
+<img src="images/pic3.png" width=400>
+<img src="images/pic4.png" width=400>
+
+Si utiliza el parametro ".", se agregá todos los archivos de su directorio de trabajo con estado "Untracked" a tu área de ensayo (staging). Tambien puedes indicar el nombre individual de un archivo específico, de acuerdo al siguiente ejemplo:
+
+```bash
+$ git add <nombre_de_archivo>
+```
+
+Para mostrar los diferentes estados de los archivos en su entorno de desarrollo local, utilice este comando: 
 
 ```bash
 $ git status
@@ -28,20 +46,6 @@ $ git diff
 
 <img src="images/pic5.png" width=400>
 
-Agregado cambios a su repositorio local: Durante el desarrollo de un codigo, es normal hacer cambios a los archivos del directorio de trabajo. Para pasar esos cambios al repositorio local, permita a GIT verificar automaticamente los cambios, pasado los archivos de estado "Untracked" a "Tracked". Agregue los archivos que desea incluir sus cambios a la base de datos de cambios históricos, con el siguiente comando:
-
-```bash
-$ git add .
-```
-
-<img src="images/pic3.png" width=400>
-<img src="images/pic4.png" width=400>
-
-Si utiliza ".", se agrega todos los archivos con estado "Untracked" de tu directorio de trabajo a tu área de ensayo (staging). Tambien puedes indicar el nombre individual de un archivo específico, como en el siguiente ejemplo:
-
-```bash
-$ git add <nombre_de_archivo>
-```
 
 Para desacer el paso anterior, es decir sacar un archivo del áre de trabajo (cambiar el estado "Tracked" a "Untracked"), utilize:
 

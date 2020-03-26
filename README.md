@@ -8,7 +8,8 @@ Permite crear una área de ensayo (staging) en memoria RAM, y una carpeta para l
 $ git init
 ```
 
-<img src="images/pic1.png">
+<img src="images/pic1.png" width=400>
+<img src="images/pic2.png" width=400>
 
 ## 2. Agregar cambios al área de trabajo.
 Para mostrar los diferentes estados de los archivos (si estan: "Tracked" o "Untracked") en tu entorno de trabajo, utilice el próximo comando. Si un archivo está "Tracked", este formará parte del área de trabajo (staging):

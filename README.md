@@ -70,7 +70,9 @@ Para registrar una instantánea permanente de tu área de trabajo (staging) en l
 $ git commit -m "<Comentario>"
 ```
 
-Recordar que para hacer un "commit", Git necesita saber quienes somos nosotros, para ello necesitas corres estos comandos, en el entorno global de Git:
+<img src="images/pic6.png" width=400>
+
+Recordar que para hacer un "commit", Git necesita saber quienes somos nosotros, para ello necesitas correr antes estos comandos, en el entorno global de Git:
 
 ```bash
 $ git config --global user.email "<correo_electronico>"

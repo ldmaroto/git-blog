@@ -1,5 +1,5 @@
 # git-blog
-Git Quick Reference Blog - Referencia rápida para usar GIT | Notas personales del Curso de platzi.com | Versión: 1.0.1 (20200326)
+Git Quick Reference Blog - Referencia rápida para usar GIT | Notas personales del Curso de platzi.com | Versión: 1.0.2 Desarrollo (20200326)
 
 ## 1. Preparar un repositorio a tu entorno de desarrollo local.
 Permite crear dos cosas: un área de ensayo (staging) en la memoria RAM y una carpeta para la base de datos del repositorio (la carpeta conocida como "/.git/"), donde se guardan los cambios atómicos de nuestro código:
@@ -189,7 +189,10 @@ Basicamente es copiar una rama existente, por lo general "master", para hacer ca
 $ git branch <nombre_de_rama> 
 ```
 
+## 9. Crear llaver SSH para conectar el repositorio local con un repositorio remoto.
+Puede vincular el repositorio local con un repositorio remoto. Para asegurar la comunicación, es aconsejable usar el protocolo SSH. Para ello es necesario crear llaves SSH. Siga los pasos es [ssh-blog](https://github.com/ldmaroto/ssh-blog).
 
-## 9. Notas adicionales.
+
+## 10. Notas adicionales.
 Importante, a GIT no le interesa la carpetas, solo los archivos. Las carpetas son consideradas rutas de los archivos.
 Nombre comunes de Ramas: master, development, hotfix.

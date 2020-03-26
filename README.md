@@ -1,5 +1,6 @@
 # git-blog
 Git Quick Reference Blog - Referencia rápida para usar GIT | Notas personales del Curso de platzi.com
+Versión: 1.0 (20200326)
 
 ## 1. Preparar un repositorio a tu entorno de desarrollo local.
 Permite crear dos cosas: un área de ensayo (staging) en la memoria RAM y una carpeta para la base de datos del repositorio (la carpeta conocida como "/.git/"), donde se guardan los cambios atómicos de nuestro código:

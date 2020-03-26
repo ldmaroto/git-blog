@@ -3,14 +3,14 @@ Git Quick Reference Blog - Referencia rápida para usar GIT | Tomado del Curso d
 
 <h3>Referencia rápida para usar GIT</h3>
 
-<h4><strong>Preparar un repositorio local<strong></br></h4>
+<h4><strong>1. Preparar un repositorio local<strong></br></h4>
 <p>Permite crear una área de ensayo (staging) en memoria RAM, y una carpeta repositorio (la carpeta conocida como "/.git/":</p>
 
 ```html
 git init
 ```
 
-<h4><strong>Agregar cambios al área de trabajo<strong></br></h4>
+<h4><strong>2. Agregar cambios al área de trabajo<strong></br></h4>
 <p>Para mostrar los diferentes estados de los archivos en tu directorio de trabajo y área de ensayo (staging):</p>
 
 ```html
@@ -42,7 +42,7 @@ git rm
 git rm --cached <archivo>
 ```
 
-<h4><strong>Crear una instantanea del área de trabajo en la base de datos del repositorio<strong></br></h4>
+<h4><strong>3. Crear una instantanea del área de trabajo en la base de datos del repositorio<strong></br></h4>
 <p>Para registrar una instantánea permanente de tu área de trabajo (staging) en la base de datos del repositorio. El nombre por defecto del repositorio es "master". Si se omite la bandera -m, Git llamará un editor de texto para completar el comentario, por defecto se usa VIM, pero puede usted programar otros como Visual Studio Code.</p>
 
 ``` html
@@ -55,14 +55,14 @@ git commit -m "<Comentario>"
 git log --stat
 ```
 
-<h4><strong>Traer un archivo de una instantánea del repositorio al entorno de trabajo<strong></br></h4>
+<h4><strong>4. Traer un archivo de una instantánea del repositorio al entorno de trabajo<strong></br></h4>
 <p>Traer la imagen de un archivo, de una instatánea de la base de datos hacia el entorno de trabajo. Es importante conocer la referencia de la instantanea de la base de datos del reposotorio, conocido como <commit-id>, el cual es una cadena de caracteres y números. Se puede reemplazar el <commit-id> por el nombre de la rama, ejemplo "master".</p>
   
 ```html
 git checkout <commit-id> <archivo>
 ```
 
-<h4><strong>Observar contenido del respositorio<strong></br></h4>
+<h4><strong>5. Observar contenido del respositorio<strong></br></h4>
 <p>En paso anterior, se mencionó sobre la referencia de la instantanea de la base de datos del repositorio, llamado <commit-id>. El siguiente comando, podrá ver el registro de todos los <commit-id> de la base de datos del repositorio:</p>
   
 ```html
@@ -75,7 +75,7 @@ git log
 git log <archivo>
 ```
 
-<h4><strong>Eliminar cambios del repositorio<strong></br></h4>
+<h4><strong>6. Eliminar cambios del repositorio<strong></br></h4>
 <p><strong>Advertencia!!!:</strong> Se utiliza sobre todo para deshacer las cosas. Puede borrar todo el historial del repositorio. Uselo entendiendo lo que está haciendo</p>
 
 ```html

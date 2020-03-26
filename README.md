@@ -43,7 +43,7 @@ $ git rm --cached <archivo>
 ```
 
 <h4><strong>3. Crear una instantanea del área de trabajo en la base de datos del repositorio<strong></br></h4>
-<p>Para registrar una instantánea permanente de tu área de trabajo (staging) en la base de datos del repositorio. El nombre por defecto del repositorio es "master". Si se omite la bandera -m, Git llamará un editor de texto para completar el comentario, por defecto se usa VIM, pero puede usted programar otros como Visual Studio Code.</p>
+<p>Para registrar una instantánea permanente de tu área de trabajo (staging) en la base de datos del repositorio. El nombre por defecto del repositorio es "master". Si se omite la bandera -m, Git llamará un editor de texto para completar el comentario, por defecto se usa VIM, pero puede usted programar otros como Visual Studio Code. Todo "commit" con mensajes vacíos, será abortado.</p>
 
 ``` html
 $ git commit -m "<Comentario>"
@@ -88,6 +88,12 @@ $ git log --stat <archivo>
 $ git show <archivo>
 ```
 
+<p>Para comparar los cambios entre dos imagenes de tu base de datos de repositorio:</p>
+
+```html
+$ git diff <commit-id.old> <commit-id.new>
+```
+
 <h4><strong>4. Traer un archivo de una instantánea del repositorio al entorno de trabajo<strong></br></h4>
 <p>Traer la imagen de un archivo, de una instatánea de la base de datos hacia el entorno de trabajo. Es importante conocer la referencia de la instantanea de la base de datos del reposotorio, conocido como <commit-id>, el cual es una cadena de caracteres y números. Se puede reemplazar el <commit-id> por el nombre de la rama, ejemplo "master".</p>
   
@@ -99,29 +105,67 @@ $ git checkout <commit-id> <archivo>
 <p>En paso anterior, se mencionó sobre la referencia de la instantanea de la base de datos del repositorio, llamado <commit-id>. El siguiente comando, podrá ver el registro de todos los <commit-id> de la base de datos del repositorio:</p>
   
 ```html
-git log
+$ git log
 ```
 
 <p>Lo mismo del punto anterior, pero aplicado a un archivos específico:</p>
 
 ```html
-git log <archivo>
+$ git log <archivo>
 ```
 
 <h4><strong>6. Eliminar cambios del repositorio<strong></br></h4>
-<p><strong>Advertencia!!!:</strong> Se utiliza sobre todo para deshacer las cosas. Puede borrar todo el historial del repositorio. Uselo entendiendo lo que está haciendo</p>
+<p><strong>Advertencia!!!:</strong> Se utiliza sobre todo para deshacer las cosas. Puede borrar todo el historial del repositorio. Uselo entendiendo lo que está haciendo. "Hard" elimina el contenido del área de trabajo (staging), y "Soft" lo mantiene.</p>
 
 ```html
-git reset 
+$ git reset --hard
+$ git reset --soft
 ```
 
-<h4><strong>7. Crear una rama<strong></br></h4>
-<p>Basicamente es copiar una rama existente, por lo general "master". </p>
+<p>Para eliminar archivos del área de trabajo (staging). No para borrarlos del entorno de trabajo, solo para que los últimos cambios de estos archivos no se envíen al próximmo "commit"</p>
+
+```html
+$ git reset HEAD
+```
+
+<h4><strong>7. Sobre flujo de trabajo de un repositorio remoto.</strong></h4>
+<p>Permite descargar los archivos de la última versión de la rama principal y todo el historial de cambios en la carpeta "/.git/":</p>
+
+```html
+git clone url_del_servidor_remoto
+```
+
+<p>Ejecutar este comando para mandar los cambios al servidor remoto:</p>
+
+```html
+git push
+```
+
+<p>Para traer actualizaciones del servidor remoto y guardarlas en nuestro repositorio local (en caso de que hayan, por supuesto).</p>
+
+```html
+git fetch
+```
+
+<p>Lo necesitamos para combinar los últimos cambios del servidor remoto y nuestro directorio de trabajo:</p>
+
+```html
+git merge
+```
+
+<p>Cumple las funciones de "git fetch" y "git merge" al mismo tiempo:</p>
+
+```html
+git pull
+```
+
+<h4><strong>8. Crear una rama<strong></br></h4>
+<p>Basicamente es copiar una rama existente, por lo general "master", para hacer cambios sin afectar la rama principal: </p>
 
 ```html
 $ git branch <nombre_de_rama> 
 ```
 
 
-<p>Importante, a GIT no le interesa la carpetas, solo los archivos. Las carpetas son consideradas rutas de los archivos:</p>
+<p>Importante, a GIT no le interesa la carpetas, solo los archivos. Las carpetas son consideradas rutas de los archivos.</p>
 <p>Nombre comunes de Ramas: master, development, hotfix.</p>

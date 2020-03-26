@@ -14,7 +14,7 @@ $ git init
 Área de ensayo es un área de preparación donde se envía los archivos antes de enviarlos a la base de datos de cambios históricos de su código o proyecto, conocido tambien como "Repositorio Local".
 
 ## 2. Agregar o eliminar cambios a su repositorio local.
-Una vez creado el repositorio, los archivos de su entorno de desarrollo local tendrán dos posibles estados:  "Tracked" o "Untracked". GIT se encarga de monitorear cambios a solo los archivos que poseen el estado "Tracked". Si un archivo está "Tracked" y el mismo fue modificado, GIT le avisara cuando es necesario incluirlo a tu área de ensayo (staging), antes de publicar el cambio al repositorio local. Para mostrar los diferentes estados de los archivos en su entorno de desarrollo local, utilice el próximo comando: 
+Una vez creado el repositorio, los archivos de su entorno de desarrollo local tendrán dos posibles estados:  "Tracked" o "Untracked". GIT se encarga de monitorear cambios a solo los archivos que poseen el estado "Tracked". Si un archivo está "Tracked" y el mismo fue modificado, GIT le indicará cuando es necesario incluirlo nuevamente a tu área de ensayo (staging), antes de publicar dicho cambio al repositorio local. Para mostrar los diferentes estados de los archivos en su entorno de desarrollo local, utilice este comando: 
 
 ```bash
 $ git status
@@ -25,6 +25,8 @@ Para observar los cambios que GIT detectó, entre el directorio de trabajo y su 
 ```bash
 $ git diff
 ```
+
+<img src="images/pic5.png" width=400>
 
 Agregado cambios a su repositorio local: Durante el desarrollo de un codigo, es normal hacer cambios a los archivos del directorio de trabajo. Para pasar esos cambios al repositorio local, permita a GIT verificar automaticamente los cambios, pasado los archivos de estado "Untracked" a "Tracked". Agregue los archivos que desea incluir sus cambios a la base de datos de cambios históricos, con el siguiente comando:
 

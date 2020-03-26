@@ -1,5 +1,18 @@
 # git-blog
-Git Quick Reference Blog - Referencia rápida para usar GIT | Notas personales del Curso de platzi.com | Versión: 1.0.2 Desarrollo (20200326)
+Git Quick Reference Blog - Referencia rápida para usar GIT | Notas personales del Curso de platzi.com | Versión: 1.0.3 Desarrollo (20200326)
+
+## Contenido
+* [1. Preparar un repositorio a tu entorno de desarrollo local.](https://github.com/ldmaroto/git-blog#1-preparar-un-repositorio-a-tu-entorno-de-desarrollo-local)
+* [2. Agregar o eliminar cambios a su repositorio local.](https://github.com/ldmaroto/git-blog#2-agregar-o-eliminar-cambios-a-su-repositorio-local)
+* [3. Crear una instantanea del área de trabajo en la base de datos del repositorio.](https://github.com/ldmaroto/git-blog#3-crear-una-instantanea-del-%C3%A1rea-de-trabajo-en-la-base-de-datos-del-repositorio)
+* [4. Traer un archivo de una instantánea del repositorio al entorno de trabajo](https://github.com/ldmaroto/git-blog#4-traer-un-archivo-de-una-instant%C3%A1nea-del-repositorio-al-entorno-de-trabajo)
+* [5. Observar contenido del respositorio.](https://github.com/ldmaroto/git-blog#5-observar-contenido-del-respositorio)
+* [6. Eliminar cambios del repositorio.](https://github.com/ldmaroto/git-blog#6-eliminar-cambios-del-repositorio)
+* [7. Sobre flujo de trabajo de un repositorio remoto.](https://github.com/ldmaroto/git-blog#7-sobre-flujo-de-trabajo-de-un-repositorio-remoto)
+* [8. Crear una rama.](https://github.com/ldmaroto/git-blog#8-crear-una-rama)
+* [9. Crear llaver SSH para conectar el repositorio local con un repositorio remoto.](https://github.com/ldmaroto/git-blog#9-crear-llaver-ssh-para-conectar-el-repositorio-local-con-un-repositorio-remoto)
+* [10. Cofigurar Github para usar el protocolo SSH.](https://github.com/ldmaroto/git-blog#10-cofigurar-github-para-usar-el-protocolo-ssh)
+* [11. Notas adicionales.](https://github.com/ldmaroto/git-blog#11-notas-adicionales)
 
 ## 1. Preparar un repositorio a tu entorno de desarrollo local.
 Permite crear dos cosas: un área de ensayo (staging) en la memoria RAM y una carpeta para la base de datos del repositorio (la carpeta conocida como "/.git/"), donde se guardan los cambios atómicos de nuestro código:
@@ -117,14 +130,14 @@ Para comparar los cambios entre dos imagenes de tu base de datos de repositorio:
 $ git diff <commit-id.old> <commit-id.new>
 ```
 
-## 4. Traer un archivo de una instantánea del repositorio al entorno de trabajo
+## 4. Traer un archivo de una instantánea del repositorio al entorno de trabajo.
 Traer la imagen de un archivo, de una instatánea de la base de datos hacia el entorno de trabajo. Es importante conocer la referencia de la instantanea de la base de datos del reposotorio, conocido como <commit-id>, el cual es una cadena de caracteres y números. Se puede reemplazar el <commit-id> por el nombre de la rama, ejemplo "master".
   
 ```bash
 $ git checkout <commit-id> <archivo>
 ```
 
-## 5. Observar contenido del respositorio
+## 5. Observar contenido del respositorio.
 En paso anterior, se mencionó sobre la referencia de la instantanea de la base de datos del repositorio, llamado <commit-id>. El siguiente comando, podrá ver el registro de todos los <commit-id> de la base de datos del repositorio:
   
 ```bash
@@ -137,7 +150,7 @@ Lo mismo del punto anterior, pero aplicado a un archivos específico:
 $ git log <archivo>
 ```
 
-## 6. Eliminar cambios del repositorio
+## 6. Eliminar cambios del repositorio.
 Advertencia!!!: Se utiliza sobre todo para deshacer las cosas. Puede borrar todo el historial del repositorio. Uselo entendiendo lo que está haciendo. "Hard" elimina el contenido del área de trabajo (staging), y "Soft" lo mantiene.
 
 ```bash
@@ -192,7 +205,38 @@ $ git branch <nombre_de_rama>
 ## 9. Crear llaver SSH para conectar el repositorio local con un repositorio remoto.
 Puede vincular el repositorio local con un repositorio remoto. Para asegurar la comunicación, es aconsejable usar el protocolo SSH. Para ello es necesario crear llaves SSH. Siga los pasos es [ssh-blog](https://github.com/ldmaroto/ssh-blog).
 
+## 10. Cofigurar Github para usar el protocolo SSH.
+El primer paso es subir la llave pública a su perfil de usuario de Github, en [Github.com|Ajustes|Llaves](https://github.com/settings/keys), en el boton "New SSH", podrá agregar el contenido de la llave. Utilice un nombre representativo a su llave.
 
-## 10. Notas adicionales.
+En el repositorio, localice el boton verde llamado "Clone or download", escoja la opción "Use SSH". Si antes no has agregado una llave pública, en este momento Github te dará una advertencia de hacerlo. Seguidamente el repositorio usará el protocolo SSH en lugar de HTTPS. Copie la nueva URL, que es algo similar a: "git@github.com:usuario/xxxx.git" (donde xxxx es el nombre de su repositorio en Github). Apunte esta URL que la usará más adelante (git@github.com:....).
+
+En la consola de terminal, escriba el siguiente comando, y podrá ver la configuración actual de las URLs que usan el protocolo HTTP:
+
+```bash
+$ git remote -v 
+```
+
+Para cambiar al protocolo SSH, basta con cambiar la URL del repositorio remoto, con este comando:
+
+```bash
+$ git remote set-url origin <git@github.com:....>
+```
+
+Finalmente proceda con este comando para verificar que hay comunicación entre los repositorios vía SSH
+
+```bash
+$ git pull origin master
+```
+
+Verá aparecer el siguiente mensaje indicando que todo está bien:
+
+```bash
+$ git pull origin master
+From github.com:ldmaroto/ssh-blog
+ * branch            master     -> FETCH_HEAD
+Already up to date.
+```
+
+## 11. Notas adicionales.
 Importante, a GIT no le interesa la carpetas, solo los archivos. Las carpetas son consideradas rutas de los archivos.
 Nombre comunes de Ramas: master, development, hotfix.

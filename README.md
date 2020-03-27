@@ -1,5 +1,5 @@
 # git-blog
-Git Quick Reference Blog - Referencia rápida para usar GIT | Notas personales del Curso de platzi.com | Versión: 1.0.4 (20200326)
+Git Quick Reference Blog - Referencia rápida para usar GIT | Notas personales del Curso de platzi.com | Versión: 1.0.4a (20200326)
 
 ## Contenido
 * [1. Preparar un repositorio a tu entorno de desarrollo local.](https://github.com/ldmaroto/git-blog#1-preparar-un-repositorio-a-tu-entorno-de-desarrollo-local)
@@ -9,10 +9,11 @@ Git Quick Reference Blog - Referencia rápida para usar GIT | Notas personales d
 * [5. Observar contenido del respositorio.](https://github.com/ldmaroto/git-blog#5-observar-contenido-del-respositorio)
 * [6. Eliminar cambios del repositorio.](https://github.com/ldmaroto/git-blog#6-eliminar-cambios-del-repositorio)
 * [7. Sobre flujo de trabajo de un repositorio remoto.](https://github.com/ldmaroto/git-blog#7-sobre-flujo-de-trabajo-de-un-repositorio-remoto)
-* [8. Crear una rama.](https://github.com/ldmaroto/git-blog#8-crear-una-rama)
-* [9. Crear llaver SSH para conectar el repositorio local con un repositorio remoto.](https://github.com/ldmaroto/git-blog#9-crear-llaver-ssh-para-conectar-el-repositorio-local-con-un-repositorio-remoto)
-* [10. Cofigurar Github para usar el protocolo SSH.](https://github.com/ldmaroto/git-blog#10-cofigurar-github-para-usar-el-protocolo-ssh)
-* [11. Notas adicionales.](https://github.com/ldmaroto/git-blog#11-notas-adicionales)
+* [8. Tags y versiones en Git y GitHub.](https://github.com/ldmaroto/git-blog#8-tags-y-versiones-en-git-y-github)
+* [9. Crear una rama.](https://github.com/ldmaroto/git-blog#9-crear-una-rama)
+* [10. Crear llaver SSH para conectar el repositorio local con un repositorio remoto.](https://github.com/ldmaroto/git-blog#10-crear-llaver-ssh-para-conectar-el-repositorio-local-con-un-repositorio-remoto)
+* [11. Cofigurar Github para usar el protocolo SSH.](https://github.com/ldmaroto/git-blog#11-cofigurar-github-para-usar-el-protocolo-ssh)
+* [Anexo 1. Notas adicionales.](https://github.com/ldmaroto/git-blog#anexo-1-notas-adicionales)
 
 ## 1. Preparar un repositorio a tu entorno de desarrollo local.
 Permite crear dos cosas: un área de ensayo (staging) en la memoria RAM y una carpeta para la base de datos del repositorio (la carpeta conocida como "/.git/"), donde se guardan los cambios atómicos de nuestro código:
@@ -195,7 +196,7 @@ Cumple las funciones de "git fetch" y "git merge" al mismo tiempo:
 git pull
 ```
 
-## 8. Tags y versiones en Git y GitHub
+## 8. Tags y versiones en Git y GitHub.
 Una manera simple de ver tags en tu repositorio local es con el comando:
 
 ```bash
@@ -231,17 +232,17 @@ Para subir los tag al repositorio remoto, escriba el comando:
 $ git push origin --tags
 ```
 
-## 8. Crear una rama.
+## 9. Crear una rama.
 Basicamente es copiar una rama existente, por lo general "master", para hacer cambios sin afectar la rama principal, siempre se creará desde la rama donde apunta HEAD:
 
 ```bash
 $ git branch <nombre_de_rama> 
 ```
 
-## 9. Crear llaver SSH para conectar el repositorio local con un repositorio remoto.
+## 10. Crear llaver SSH para conectar el repositorio local con un repositorio remoto.
 Puede vincular el repositorio local con un repositorio remoto. Para asegurar la comunicación, es aconsejable usar el protocolo SSH. Para ello es necesario crear llaves SSH. Siga los pasos es [ssh-blog](https://github.com/ldmaroto/ssh-blog).
 
-## 10. Cofigurar Github para usar el protocolo SSH.
+## 11. Cofigurar Github para usar el protocolo SSH.
 El primer paso es subir la llave pública a su perfil de usuario de Github, en [Github.com|Ajustes|Llaves](https://github.com/settings/keys), en el boton "New SSH", podrá agregar el contenido de la llave. Utilice un nombre representativo a su llave.
 
 En el repositorio, localice el boton verde llamado "Clone or download", escoja la opción "Use SSH". Si antes no has agregado una llave pública, en este momento Github te dará una advertencia de hacerlo. Seguidamente el repositorio usará el protocolo SSH en lugar de HTTPS. Copie la nueva URL, que es algo similar a: "git@github.com:usuario/xxxx.git" (donde xxxx es el nombre de su repositorio en Github). Apunte esta URL que la usará más adelante (git@github.com:....).
@@ -273,6 +274,6 @@ From github.com:ldmaroto/ssh-blog
 Already up to date.
 ```
 
-## 11. Notas adicionales.
+## Anexo 1. Notas adicionales.
 Importante, a GIT no le interesa la carpetas, solo los archivos. Las carpetas son consideradas rutas de los archivos.
 Nombre comunes de Ramas: master, development, hotfix.

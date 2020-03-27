@@ -1,5 +1,5 @@
 # git-blog
-Git Quick Reference Blog - Referencia rápida para usar GIT | Notas personales del Curso de platzi.com | Versión: 1.0.3 (20200326)
+Git Quick Reference Blog - Referencia rápida para usar GIT | Notas personales del Curso de platzi.com | Versión: 1.0.4 (20200326)
 
 ## Contenido
 * [1. Preparar un repositorio a tu entorno de desarrollo local.](https://github.com/ldmaroto/git-blog#1-preparar-un-repositorio-a-tu-entorno-de-desarrollo-local)
@@ -193,6 +193,42 @@ Cumple las funciones de "git fetch" y "git merge" al mismo tiempo:
 
 ```bash
 git pull
+```
+
+## 8. Tags y versiones en Git y GitHub
+Una manera simple de ver tags en tu repositorio local es con el comando:
+
+```bash
+$ git tags
+```
+
+Antes de aprender a crear tags, la siguiente linea de comando presenta una resumen comprimido del historial de la base de datos del repositorio. Es muy util para buscar los "commit-id":
+
+```bash
+$ git log --all --graph --decorate --oneline
+```
+
+Como resultado tendrá una respuesta similar a esto:
+
+```bash
+$ git log --all --graph --decorate --oneline
+* 6dbbb7d Cambio de imagen
+* 75ec0e3 Mas cambios de contenido
+* 56c77fc Mas cambios de contenido
+* c794aa9 Prueba de git rm...
+* 84942d1 Mas cambios
+```
+
+Para crear un tag, utilize esta linea de comando:
+
+```bash
+$ git tag -a <numero_versión> -m "<comentario>" <commit-id>
+```
+
+Para subir los tag al repositorio remoto, escriba el comando:
+
+```bash
+$ git push origin --tags
 ```
 
 ## 8. Crear una rama.

@@ -253,7 +253,12 @@ En la consola de terminal, escriba el siguiente comando, y podrá ver la configu
 $ git remote -v 
 ```
 
-Para cambiar al protocolo SSH, basta con cambiar la URL del repositorio remoto, con este comando:
+Seguidamente defina un repositorio remoto en el repositorio local:
+```bash
+$ git remote add origin <https://github.com/....> 
+```
+
+Para cambiar a un protocolo SSH, basta con cambiar la URL del repositorio remoto, con este comando:
 
 ```bash
 $ git remote set-url origin <git@github.com:....>

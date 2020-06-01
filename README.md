@@ -1,5 +1,5 @@
 # git-blog
-Git Quick Reference Blog - Referencia rápida para usar GIT | Notas personales del Curso de platzi.com | Versión: 1.0.4a (20200326)
+Git Quick Reference Blog - Referencia rápida para usar GIT | Notas personales del Curso de platzi.com | Versión: 1.0.5 Desarrollo (20200327)
 
 ## Contenido
 * [1. Preparar un repositorio a tu entorno de desarrollo local.](https://github.com/ldmaroto/git-blog#1-preparar-un-repositorio-a-tu-entorno-de-desarrollo-local)
@@ -253,7 +253,12 @@ En la consola de terminal, escriba el siguiente comando, y podrá ver la configu
 $ git remote -v 
 ```
 
-Para cambiar al protocolo SSH, basta con cambiar la URL del repositorio remoto, con este comando:
+Seguidamente defina un repositorio remoto en el repositorio local:
+```bash
+$ git remote add origin <https://github.com/....> 
+```
+
+Para cambiar a un protocolo SSH, basta con cambiar la URL del repositorio remoto, con este comando:
 
 ```bash
 $ git remote set-url origin <git@github.com:....>
@@ -273,6 +278,80 @@ From github.com:ldmaroto/ssh-blog
  * branch            master     -> FETCH_HEAD
 Already up to date.
 ```
+
+## Multiples entornos de trabajo
+### Git Rebase
+El uso de este comando es considerado una mala práctica, permite tomar todos los cambios confirmados en una rama y reubicarlos en otra rama.
+
+Primero, cambiamos a la rama que queremos traer los cambios:
+
+```bash
+$ git checkout dev-master 
+```
+
+Segundo, aplicamos rebase para traer los cambios de la rama que queremos
+
+```bash
+$ git checkout master 
+```
+
+### Git Stash
+Este comando es muy util para estamos haciendo cambios que no merecen una rama o no merecen un rebase, sino simplemente estamos probando algo y luego quiremos volver rápidamente a la versión anterior, la cual es la correcta.
+
+```bash
+$ git stash 
+```
+
+### Git Clean
+Cuando tenemos archivos termporales, porque son el resultado de una compilación de código, y no queremos que estos formen parte del repositorio, tenemos una forma rápida de borrarlos:
+
+Primero, para desplegar cuales archivos se pueden eliminar:
+
+```bash
+$ git clean --dry-run 
+```
+
+Para eliminarlos de forma definitiva:
+
+```bash
+$ git clean -f 
+```
+
+### Git Cherry-pick
+Otro ejemplo de comando que forma parte de las malas prácticas de Git. 
+
+```bash
+$ git cherry-pick <commit-id> 
+```
+
+
+## Comandos para casos de emergencia
+### Git Commit --amend
+Si resulta que no queríamos enviar un commit porque faltaba algo más, utilizaremos el siguiente comando para adjuntar el cambio al commit enviado (amend en inglés es remendar):
+
+```bash
+git commit --amend 
+```
+
+### Git Reset y Reflog: 
+El "Git Reflog", es un comando mas detallado que el "Git Log", no solo muestra los "commit-id", sino tambien los "Heads" que se han eliminado.
+
+```bash
+git reflog 
+```
+
+Para restablecer el historial y mantener lo que tengas en staging ahí:
+
+```bash
+git reset --soft <HashDelHEAD>
+```
+
+Para restablecer el historial y resetea absolutamente todo incluyendo lo que tengas en staging.
+
+```bash
+git reset --hard <HashDelHEAD> 
+```
+
 
 ## Anexo 1. Notas adicionales.
 Importante, a GIT no le interesa la carpetas, solo los archivos. Las carpetas son consideradas rutas de los archivos.
